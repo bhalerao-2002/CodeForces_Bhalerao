@@ -1,0 +1,54 @@
+#include <bits/stdc++.h>
+#define ll   long long
+#define pb   push_back
+#define ld   long double
+#define sz   size()
+#define lala for(ll i=0;i<n;i++)
+#define ed   "\n"
+#define ct   cout
+using namespace std;
+bool check_perfect_cube(ll x){
+	ll tmp = cbrt(x);
+	while(tmp * tmp * tmp > x){
+		tmp--;
+	}
+	while(tmp * tmp * tmp < x){
+		tmp++;
+	}
+	if(tmp * tmp * tmp == x){
+		return true;
+	}
+	return false;
+}
+//Function From Bhalerao-2002
+void Bhalerao()
+{
+	ll x,z;
+	cin >> x;
+
+	for(ll a=1;a<10001;a++) {
+        z = x - (a*a*a);
+		if(z<= 0){
+			break;
+		}
+
+		if(check_perfect_cube(z)){
+			ct<< "YES"<<ed;
+			return;
+		}
+
+	}
+	ct<<"NO"<<ed;
+}
+
+int main()
+{
+    long long t;
+    cin>>t;
+
+    while(t--)
+    {
+        Bhalerao();
+    }
+    return 0;
+}
